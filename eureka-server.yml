@@ -1,0 +1,21 @@
+server:
+  port: 8761
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+eureka:
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+  instance:
+    non-secure-port-enabled: true
+    secure-port-enabled: true
+    status-page-url: https://${eureka.instance.hostName}:${server.port}/info
+    health-check-url: https://${eureka.instance.hostName}:${server.port}/health
+    home-page-url: https://${eureka.instance.hostName}:${server.port}/
+  server:
+    renewalPercentThreshold: 0.49
+ribbon:
+  IsSecure: true
